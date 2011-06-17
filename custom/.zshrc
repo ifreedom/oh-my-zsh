@@ -82,3 +82,7 @@ export LUA_PATH="./?.lua;./?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.
 if [ -f ~/.wk-work ]; then
 	export WK_WORK=1
 fi
+
+# 让终端也支持 NotifyOSD，接收任务完成通知
+alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"' 
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
