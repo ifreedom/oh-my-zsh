@@ -86,3 +86,6 @@ fi
 # 让终端也支持 NotifyOSD，接收任务完成通知
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"' 
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
+
+# Load all of the config files in custom/lib that end in .zsh
+for config_file ($ZSH/custom/lib/*.zsh) source $config_file
