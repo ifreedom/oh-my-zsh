@@ -79,6 +79,6 @@ export EDITOR='emacsclient'
 export ALTERNATE_EDITOR='emacs& && emacsclient'
 export LUA_PATH="./?.lua;./?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua"
 
-if [ -f ~/.wk-work ]; then
-	export WK_WORK=1
-fi
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
