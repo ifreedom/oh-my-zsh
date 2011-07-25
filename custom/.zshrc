@@ -52,6 +52,7 @@ export ZSH_THEME="tjkirch"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+DISABLE_AUTO_UPDATE=true # disable update
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
@@ -83,3 +84,10 @@ export LUA_CPATH="./?.so;/usr/lib/lua/5.1/?.so;/opt/luadist/lib/lua/?.so"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+# 让终端也支持 NotifyOSD，接收任务完成通知
+alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"' 
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
+
+# Load all of the config files in custom/lib that end in .zsh
+for config_file ($ZSH/custom/lib/*.zsh) source $config_file
