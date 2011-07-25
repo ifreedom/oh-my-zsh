@@ -52,6 +52,7 @@ export ZSH_THEME="tjkirch"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+DISABLE_AUTO_UPDATE=true # disable update
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
