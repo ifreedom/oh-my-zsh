@@ -73,11 +73,12 @@ WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #/v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
 
-export PATH=$PATH:/opt/pspsdk/bin
+export PATH=$PATH:/opt/pspsdk/bin:/opt/luadist/bin
 export BROWSER='chromium' #if have not browser, you can set it fow colourful man --html
 export EDITOR='emacsclient'
 export ALTERNATE_EDITOR='emacs& && emacsclient'
-export LUA_PATH="./?.lua;./?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua"
+export LUA_PATH="./?.lua;./?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua;/opt/luadist/lib/lua/?.lua;/opt/luadist/lib/lua/?/init.lua"
+export LUA_CPATH="./?.so;/usr/lib/lua/5.1/?.so;/opt/luadist/lib/lua/?.so"
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
