@@ -91,3 +91,4 @@ alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png
 
 # Load all of the config files in custom/lib that end in .zsh
 for config_file ($ZSH/custom/lib/*.zsh) source $config_file
+[[ -x ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
