@@ -55,6 +55,9 @@ plugins=(git)
 DISABLE_AUTO_UPDATE=true # disable update
 source $ZSH/oh-my-zsh.sh
 
+# Load all of the config files in custom/lib that end in .zsh
+for config_file ($ZSH/custom/lib/*.zsh) source $config_file
+
 # Customize to your needs...
 
 zstyle ':completion:*:sudo:*' command-path /usr/sbin /sbin /usr/bin /bin
@@ -78,8 +81,12 @@ export PATH=$PATH:/opt/pspsdk/bin:/opt/luadist/bin
 export BROWSER='chromium' #if have not browser, you can set it fow colourful man --html
 export EDITOR='emacsclient'
 export ALTERNATE_EDITOR='emacs& && emacsclient'
-export LUA_PATH="./?.lua;./?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua;/opt/luadist/lib/lua/?.lua;/opt/luadist/lib/lua/?/init.lua"
-export LUA_CPATH="./?.so;/usr/lib/lua/5.1/?.so;/opt/luadist/lib/lua/?.so"
+
+LUA_PATH="/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua"
+
+LUA_CPATH="/usr/local/lib/lua/5.1/?.so;/usr/lib/lua/5.1/?.so"
+
+export LUA_PATH LUA_CPATH
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -88,6 +95,3 @@ export QT_IM_MODULE=ibus
 # 让终端也支持 NotifyOSD，接收任务完成通知
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"' 
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
-
-# Load all of the config files in custom/lib that end in .zsh
-for config_file ($ZSH/custom/lib/*.zsh) source $config_file
