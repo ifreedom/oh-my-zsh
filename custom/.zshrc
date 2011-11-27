@@ -14,6 +14,8 @@ fi
    PATH=${HOME}/bin:${PATH}
  fi
 
+for profile_file (/etc/profile.d/*.sh) source $profile_file
+
 # Set MANPATH so it includes users' private man if it exists
 # if [ -d "${HOME}/man" ]; then
 #   MANPATH=${HOME}/man:${MANPATH}
@@ -96,8 +98,13 @@ export QT_IM_MODULE=ibus
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"' 
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
 
-[[ -x ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
-which npm 1>/dev/null && NODE_PATH="$(npm root -g)"
-export NODE_PATH
+if [ -x ~/.rvm/scripts/rvm ]; then
+	source ~/.rvm/scripts/rvm
+	rvm use 1.9.2
+fi
+
+if 
+
+[[ -e ~/.zshrc.local ]] && source ~/.zshrc.local
 
 echo "ZSH init complete!"
