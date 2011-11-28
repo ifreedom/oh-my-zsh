@@ -98,12 +98,13 @@ export QT_IM_MODULE=ibus
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"' 
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
 
-if [ -x ~/.rvm/scripts/rvm ]; then
+if [ -f ~/.rvm/scripts/rvm ]; then
 	source ~/.rvm/scripts/rvm
-	rvm use 1.9.2
 fi
 
-if 
+if [ -f ~/.nvm/nvm.sh ]; then
+	source ~/.nvm/nvm.sh
+fi
 
 [[ -e ~/.zshrc.local ]] && source ~/.zshrc.local
 
