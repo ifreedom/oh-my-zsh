@@ -1,4 +1,4 @@
-fix_nvm_npm_path() {
+fixed_nvm_use() {
 	VERSION=$1
 	nvm use $VERSION
     if [[ $NODE_PATH == *$NVM_DIR/*/lib/node_modules* ]]; then
